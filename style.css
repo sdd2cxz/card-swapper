@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    
+}
+.card-groups,
+.card-wrapper,
+.card{
+    aspect-ratio: 5/7;
+}
+.card-groups,
+.card-wrapper,
+.big-card{
+    width: 30vmin;
+}
+
+.card-wrapper{
+    position: absolute;
+    transition: transform 400ms ease;
+}
+.card{
+    
+    background-color: rgba(255, 255, 255);
+    position: absolute;
+    transition: transform 800ms cubic-bezier(.05,.43,.25,.95);
+
+}
+
+.big-card{
+    border-radius: 1vmin;
+  
+    
+}
+.big-card:nth-child(2){
+    background-color: rgba(130, 129, 140);
+    transform: translateX(-10%) rotate(-1deg);
+    
+}
+
+.big-card:nth-child(4){
+    background-color: rgba(90, 25, 25);
+    transform: rotate(2deg);
+    
+}
+
+.big-card:nth-child(6){
+    background-color: rgba(36, 150, 67);
+    transform: translateX(-6%) rotate(-3deg);
+    z-index: 3;
+}
+
+.big-card:nth-child(8){
+    background-color: rgba(0, 0, 255);
+    transform: translate(10%, 3%) rotate(5deg);
+    z-index: 4;
+    
+}
+
+.card-wrapper:hover > .big-card:nth-child(2){
+    
+    transform: translate(-70%, 15%) rotate(-20deg);
+    
+}
+
+.card-wrapper:hover > .big-card:nth-child(4){
+    transform: translate(-20%, 5%) rotate(-10deg);
+    
+}
+
+.card-wrapper:hover > .big-card:nth-child(6){
+    transform: translate(20%, 5%) rotate(5deg);
+    
+}
+
+.card-wrapper:hover > .big-card:nth-child(8){
+    transform: translate(75%, 10%) rotate(15deg);
+    
+}
+.small-card{
+    border-radius: 2vmin;
+    width: 12vmin;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.card-wrapper:hover > .small-card:nth-child(1){
+    transform: translate(-190%, -170%) rotate(20deg);
+}
+.card-wrapper:hover > .small-card:nth-child(3){
+    transform: translate(-290%, 140%) rotate(-20deg);
+}
+.card-wrapper:hover > .small-card:nth-child(5){
+    transform: translate(150%, -200%) rotate(-20deg);
+}
+.card-wrapper:hover > .small-card:nth-child(7){
+    transform: translate(200%, 150%) rotate(20deg);
+}
+
+.swap-buttons{
+   margin-top: 8vmin;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+
+.btn{
+    background-color: transparent;
+    color: white;
+    font-size: 2.5vmin;
+    border: 2px solid white;
+    border-radius: 100%;
+    width: 7vmin;
+    height: 7vmin;
+    cursor: pointer;
+    font-family: 'Cabin', sans-serif;
+    font-weight: bold;
+}
+.like-btn:hover{
+    border-color: lightskyblue;
+}
+.hate-btn:hover{
+    border-color: red;
+}
+.card-wrapper[data-status="unknown"]{
+    transform: scale(0);
+}
+.card-wrapper[data-status="after"]{
+    transform: translate(50%) scale(0);
+}
+.card-wrapper[data-status="before"]{
+    transform: translate(-50%) scale(0);
+}
+.card-wrapper[data-status="becoming-after-from-before"]{
+    transform: translate(-50%) scale(0);
+    transition: none
+}
+.card-wrapper[data-status="becoming-before-from-after"]{
+    transform: translate(50%) scale(0);
+    transition: none;
+}
